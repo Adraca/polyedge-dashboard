@@ -19,7 +19,7 @@ export default function ConfidenceBars({ breakdown }) {
 
           <div className="h-2 bg-white/10 rounded overflow-hidden">
             <div
-              className="h-full bg-purple-400 transition-all duration-700 ease-out"
+              className="h-full bg-blue-400 transition-all duration-700 ease-out"
               style={{ width: `${r.value}%` }}
             />
           </div>

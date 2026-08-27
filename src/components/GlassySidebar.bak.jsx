@@ -2,7 +2,7 @@
 import { NavLink } from 'react-router-dom';
 
 const item = (t, active) => ({ display:'block', padding:'10px 12px', borderRadius:10, margin:'8px 0',
-  background: active ? 'linear-gradient(90deg, rgba(124,58,237,0.12), rgba(58,60,255,0.06))' : 'transparent',
+  background: active ? 'linear-gradient(90deg, rgba(59,130,246,0.12), rgba(58,60,255,0.06))' : 'transparent',
   color: active ? '#fff' : 'rgba(255,255,255,0.8)' });
 
 export default function GlossySidebar(){

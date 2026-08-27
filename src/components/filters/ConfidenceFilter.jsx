@@ -10,7 +10,7 @@ export default function ConfidenceFilter({ value, onChange }) {
           onClick={() => onChange(level)}
           className={`px-3 py-1 rounded-full transition ${
             value === level
-              ? "bg-violet-600 text-white"
+              ? "bg-blue-600 text-white"
               : "bg-white/10 hover:bg-white/20"
           }`}
         >

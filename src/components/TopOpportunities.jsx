@@ -19,7 +19,7 @@ export default function TopOpportunities() {
             key={b.title}
             className="
               relative rounded-2xl p-5 text-white
-              bg-gradient-to-r from-indigo-600/80 via-purple-600/80 to-violet-600/80
+              bg-gradient-to-r from-blue-600/80 via-blue-600/80 to-cyan-600/80
               hover:brightness-110 transition
             "
           >

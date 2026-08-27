@@ -11,7 +11,7 @@ export default function PortfolioCard({ lastTrade }) {
   }
 
   return (
-    <div className="rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 p-[1px]">
+    <div className="rounded-xl bg-gradient-to-r from-blue-600 to-blue-600 p-[1px]">
       <div className="rounded-xl bg-[#0b1220] p-5">
         <div className="flex justify-between items-center">
           <div>

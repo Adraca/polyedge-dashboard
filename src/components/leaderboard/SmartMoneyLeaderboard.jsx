@@ -5,7 +5,7 @@ export default function SmartMoneyLeaderboard() {
   return (
     <div
       className="rounded-xl p-4
-                 bg-gradient-to-br from-indigo-900/70 to-purple-900/60
+                 bg-gradient-to-br from-slate-900/70 to-slate-900/60
                  border border-white/10 backdrop-blur
                  shadow-lg"
     >

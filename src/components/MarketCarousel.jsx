@@ -14,7 +14,7 @@ export default function MarketCarousel() {
         {markets.map((m) => (
           <div
             key={m.title}
-            className="min-w-[280px] bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-xl p-4"
+            className="min-w-[280px] bg-gradient-to-r from-blue-600 to-blue-600 text-white rounded-xl p-4"
           >
             <div className="text-sm opacity-80">{m.date}</div>
             <div className="text-lg font-semibold">{m.title}</div>

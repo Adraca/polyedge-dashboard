@@ -1,96 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* =========================================================
-GLOBAL
+   Adraca Design System — matched to adraca.io
 ========================================================= */
-html, body {
-  height: 100%;
+:root {
+  --bg:           #0B0E14;
+  --bg-card:      #0f172a;
+  --bg-raised:    #161B22;
+  --bg-hover:     #1e293b;
+  --border:       #1e293b;
+  --border-dim:   rgba(30,41,59,0.6);
+  --border-bright:rgba(59,130,246,0.25);
+  --blue:         #3b82f6;
+  --blue-dim:     rgba(59,130,246,0.15);
+  --blue-glow:    rgba(59,130,246,0.3);
+  --cyan:         #06b6d4;
+  --cyan-dim:     rgba(6,182,212,0.15);
+  --sky:          #0ea5e9;
+  --green:        #10b981;
+  --amber:        #f59e0b;
+  --rose:         #f43f5e;
+  --text:         #f8fafc;
+  --text-sec:     #e2e8f0;
+  --text-muted:   #94a3b8;
+  --text-faint:   #475569;
+  --grid-line:    #80808012;
 }
 
+html, body { height: 100%; }
 body {
-  @apply bg-black text-white antialiased;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(59,130,246,0.3); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(59,130,246,0.55); }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+.scrollbar-hide::-webkit-scrollbar { display: none; }
 
 /* =========================================================
-PREMIUM BACKGROUND
+   ADRACA BACKGROUND — grid + blue glow (matches adraca.io)
 ========================================================= */
 .bg-premium {
   background:
-    radial-gradient(1200px 600px at 50% -10%, rgba(168,85,247,.14), transparent 60%),
-    linear-gradient(to bottom, #06070f, #05050b);
+    radial-gradient(ellipse 110% 55% at 70% -10%, rgba(59,130,246,.1), transparent 60%),
+    radial-gradient(ellipse 55% 30% at 0% 95%, rgba(6,182,212,.06), transparent 55%),
+    linear-gradient(to right,  var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px),
+    var(--bg);
+  background-size: auto, auto, 40px 40px, 40px 40px, auto;
 }
 
 /* =========================================================
-SCROLL
+   CARDS
 ========================================================= */
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+.glass-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
 }
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
+.glass-card-raised {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.card-blue  { border-color: rgba(59,130,246,0.28); }
+.card-cyan  { border-color: rgba(6,182,212,0.28);  }
+.card-green { border-color: rgba(16,185,129,0.28); }
+.card-amber { border-color: rgba(245,158,11,0.28); }
+.card-rose  { border-color: rgba(244,63,94,0.28);  }
+
+.border-glow-blue  { box-shadow: 0 0 0 1px rgba(59,130,246,0.4), inset 0 1px 0 rgba(59,130,246,0.08); }
+.border-glow-cyan  { box-shadow: 0 0 0 1px rgba(6,182,212,0.4),  inset 0 1px 0 rgba(6,182,212,0.08); }
+.border-glow-green { box-shadow: 0 0 0 1px rgba(16,185,129,0.4); }
+.border-glow-rose  { box-shadow: 0 0 0 1px rgba(244,63,94,0.5),  0 0 24px rgba(244,63,94,0.12); }
+
+/* =========================================================
+   BADGES
+========================================================= */
+.badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 2px 8px; border-radius: 999px;
+  font-size: 11px; font-weight: 600; letter-spacing: .02em;
+}
+.badge-blue   { background: rgba(59,130,246,.14);  color: #60a5fa; border: 1px solid rgba(59,130,246,.3); }
+.badge-cyan   { background: rgba(6,182,212,.14);   color: #22d3ee; border: 1px solid rgba(6,182,212,.3); }
+.badge-green  { background: rgba(16,185,129,.14);  color: #34d399; border: 1px solid rgba(16,185,129,.3); }
+.badge-amber  { background: rgba(245,158,11,.14);  color: #fbbf24; border: 1px solid rgba(245,158,11,.3); }
+.badge-red    { background: rgba(244,63,94,.14);   color: #fb7185; border: 1px solid rgba(244,63,94,.3); }
+.badge-violet { background: rgba(59,130,246,.14);  color: #60a5fa; border: 1px solid rgba(59,130,246,.3); }
+
+/* =========================================================
+   GRADIENT TEXT — Adraca blue-cyan
+========================================================= */
+.gradient-text {
+  background: linear-gradient(90deg, #60a5fa, #22d3ee);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.gradient-text-violet {
+  background: linear-gradient(90deg, #60a5fa, #22d3ee);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.gradient-text-green {
+  background: linear-gradient(90deg, #34d399, #22d3ee);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
 
 /* =========================================================
-SIGNAL GLOW + URGENCY
+   NAVIGATION
 ========================================================= */
-@keyframes pulseFire {
-  0% {
-    box-shadow: 0 0 6px rgba(255,80,80,.4);
-    text-shadow: 0 0 6px rgba(255,80,80,.4);
-  }
-  50% {
-    box-shadow: 0 0 18px rgba(255,80,80,.9);
-    text-shadow: 0 0 14px rgba(255,80,80,.9);
-  }
-  100% {
-    box-shadow: 0 0 6px rgba(255,80,80,.4);
-    text-shadow: 0 0 6px rgba(255,80,80,.4);
-  }
+.nav-item {
+  display: flex; align-items: center; gap: 10px; padding: 9px 12px;
+  border-radius: 8px; font-size: 13.5px; font-weight: 500;
+  cursor: pointer; transition: all .15s ease;
+  color: var(--text-muted);
 }
-
-.fire {
-  animation: pulseFire 1.6s ease-in-out infinite;
-  color: #ff5a5a;
-}
+.nav-item:hover  { background: rgba(59,130,246,.08); color: var(--text-sec); }
+.nav-item.active { background: rgba(59,130,246,.16); color: #60a5fa; }
 
 /* =========================================================
-CONFIDENCE DECAY (VISUAL ONLY)
+   SIGNAL ANIMATIONS
 ========================================================= */
-@keyframes decay {
-  from { opacity: 1; }
-  to { opacity: .65; }
+@keyframes firePulse {
+  0%,100% { text-shadow: 0 0 4px rgba(244,63,94,.5); color: #f43f5e; }
+  50%      { text-shadow: 0 0 14px rgba(244,63,94,.9); color: #fb7185; }
 }
+.fire { animation: firePulse 1.6s ease-in-out infinite; }
 
-.decay {
-  animation: decay 60s linear infinite;
-}
-
-/* =========================================================
-CARD
-========================================================= */
-.card {
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255,.06),
-    rgba(255,255,255,.02)
-  );
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 14px;
-}
-
-/* =========================================================
-URGENT CARD BORDER (LAST MINUTES)
-========================================================= */
 @keyframes borderDanger {
-  0% { box-shadow: 0 0 0 rgba(255,80,80,.0); }
-  50% { box-shadow: 0 0 22px rgba(255,80,80,.35); }
-  100% { box-shadow: 0 0 0 rgba(255,80,80,.0); }
+  0%,100% { border-color: rgba(244,63,94,.2); box-shadow: none; }
+  50%      { border-color: rgba(244,63,94,.55); box-shadow: 0 0 24px rgba(244,63,94,.15); }
+}
+.resolve-border { animation: borderDanger 2.4s ease-in-out infinite; }
+
+.shimmer {
+  background: linear-gradient(90deg,
+    rgba(255,255,255,.02) 25%, rgba(255,255,255,.06) 50%, rgba(255,255,255,.02) 75%);
+  background-size: 200% 100%;
+  animation: shimmerMove 2s linear infinite;
+}
+@keyframes shimmerMove {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
 
-.resolve-border {
-  animation: borderDanger 2.2s ease-in-out infinite;
-  border-color: rgba(255,80,80,.35);
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
+.animate-in { animation: fadeUp .42s ease forwards; }
+
+@keyframes decay { from { opacity: 1; } to { opacity: .65; } }
+.decay { animation: decay 60s linear infinite; }
+
+/* =========================================================
+   ADRACA GRADIENT BUTTON
+========================================================= */
+.btn-gradient {
+  background: linear-gradient(45deg, #3b82f6, #06b6d4);
+  color: #fff; font-weight: 600; border-radius: 8px;
+  border: none; cursor: pointer;
+  transition: opacity .15s ease, box-shadow .15s ease;
+}
+.btn-gradient:hover { opacity: .88; box-shadow: 0 0 20px rgba(59,130,246,.35); }

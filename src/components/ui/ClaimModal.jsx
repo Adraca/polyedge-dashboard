@@ -20,7 +20,7 @@ export default function ClaimModal({ open, onClose, amount }) {
 
         <button
           onClick={onClose}
-          className="w-full py-2 rounded-lg bg-purple-600 hover:bg-purple-700 transition"
+          className="w-full py-2 rounded-lg bg-blue-600 hover:bg-blue-800 transition"
         >
           Close
         </button>

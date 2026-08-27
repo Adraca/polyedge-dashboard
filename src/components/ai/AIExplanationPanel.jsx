@@ -3,7 +3,7 @@ import React from "react";
 export default function AIExplanationPanel() {
   return (
     <div className="relative rounded-2xl p-5
-                    bg-gradient-to-br from-indigo-900/60 via-purple-900/50 to-fuchsia-900/40
+                    bg-gradient-to-br from-slate-900/60 via-blue-900/50 to-blue-900/40
                     border border-white/10 backdrop-blur">
 
       {/* Header */}

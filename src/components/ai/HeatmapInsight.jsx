@@ -5,7 +5,7 @@ export default function HeatmapInsight({ signal }) {
 
   return (
     <div className="rounded-xl p-4
-      bg-gradient-to-br from-violet-900/70 to-purple-800/60
+      bg-gradient-to-br from-slate-900/70 to-blue-900/60
       border border-white/10 text-sm shadow-xl">
 
       <div className="flex justify-between mb-2">

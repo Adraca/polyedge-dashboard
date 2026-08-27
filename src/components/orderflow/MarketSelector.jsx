@@ -9,7 +9,7 @@ export default function MarketSelector({ active, onChange }) {
           onClick={() => onChange(m)}
           className={`px-3 py-1 rounded text-sm ${
             active === m
-              ? "bg-purple-600"
+              ? "bg-blue-600"
               : "bg-premiumCard opacity-70"
           }`}
         >

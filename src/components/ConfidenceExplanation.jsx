@@ -1,36 +1,27 @@
 export default function ConfidenceExplanation({ signal }) {
-  if (!signal || !signal.confidenceBreakdown) return null;
+  if (!signal) return null;
 
-  const {
-    momentum,
-    trend,
-    volatility,
-    liquidity,
-    timePenalty,
-    finalConfidence,
-  } = signal.confidenceBreakdown;
+  const pct = Math.round((signal.confidence ?? 0) * 100);
+  const edge = signal.edge != null ? `${(signal.edge * 100).toFixed(1)}%` : null;
+  const mp = signal.marketProbability != null ? `${Math.round(signal.marketProbability * 100)}%` : null;
 
+  if (signal.confidenceBreakdown) {
+    const { momentum, trend, volatility, liquidity, timePenalty } = signal.confidenceBreakdown;
+    return (
+      <div style={{ fontSize: 11, lineHeight: 1.7, color: "rgba(226,232,240,0.55)" }}>
+        <div>Momentum +{momentum}% · Trend +{trend}%</div>
+        <div>Vol fit +{volatility}% · Liquidity +{liquidity}%</div>
+        {timePenalty > 0 && <div style={{ color: "#f59e0b" }}>Late entry −{timePenalty}%</div>}
+      </div>
+    );
+  }
+
+  const hasEdge = signal.edge != null && signal.edge > 0.001;
   return (
-    <div className="mt-3 rounded-lg bg-black/40 p-3 border border-white/10">
-      <div className="text-xs font-semibold text-white/80 mb-2">
-        Confidence Breakdown
-      </div>
-
-      <ul className="text-[11px] text-white/60 space-y-1">
-        <li>Momentum Alignment: +{momentum}%</li>
-        <li>Trend Strength: +{trend}%</li>
-        <li>Volatility Fit: +{volatility}%</li>
-        <li>Liquidity Confirmation: +{liquidity}%</li>
-        {timePenalty > 0 && (
-          <li className="text-yellow-400">
-            Late Entry Penalty: −{timePenalty}%
-          </li>
-        )}
-      </ul>
-
-      <div className="mt-2 text-xs font-bold text-white">
-        Final Confidence: {finalConfidence}%
-      </div>
+    <div style={{ fontSize: 11, lineHeight: 1.9, color: "rgba(226,232,240,0.55)" }}>
+      {mp && <div>Market probability <span style={{ color: "#e2e8f0", fontWeight: 600 }}>{mp}</span></div>}
+      {hasEdge && <div>Signal edge <span style={{ color: "#10b981", fontWeight: 600 }}>{edge}</span></div>}
+      <div>Confidence <span style={{ color: "#e2e8f0", fontWeight: 600 }}>{pct}%</span> · 15m window</div>
     </div>
   );
 }

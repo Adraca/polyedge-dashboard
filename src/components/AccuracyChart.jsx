@@ -45,7 +45,7 @@ export default function AccuracyChart() {
           <div
             key={d.index}
             title={`${d.accuracy}%`}
-            className="flex-1 bg-purple-500/70 rounded-sm"
+            className="flex-1 bg-blue-500/70 rounded-sm"
             style={{ height: `${d.accuracy}%` }}
           />
         ))}

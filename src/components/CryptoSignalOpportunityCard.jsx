@@ -16,14 +16,14 @@ export default function CryptoSignalOpportunityCard({ signal, onEnter, onSkip })
   const confidencePct = Math.round(signal.confidence * 100);
 
   return (
-    <div className="bg-gradient-to-br from-purple-700 to-indigo-700 rounded-xl p-5 relative shadow-lg">
+    <div className="bg-gradient-to-br from-blue-800 to-blue-700 rounded-xl p-5 relative shadow-lg">
       {/* Header */}
       <div className="flex justify-between items-center mb-2">
         <div>
           <h3 className="text-white font-semibold">
             {signal.symbol} Up or Down · 15m
           </h3>
-          <p className="text-xs text-purple-200">
+          <p className="text-xs text-blue-200">
             Resolve in {minutes}:{seconds.toString().padStart(2, "0")}
           </p>
         </div>
@@ -33,7 +33,7 @@ export default function CryptoSignalOpportunityCard({ signal, onEnter, onSkip })
           <div className="text-2xl font-bold text-white">
             {confidencePct}%
           </div>
-          <div className="text-xs text-purple-200">
+          <div className="text-xs text-blue-200">
             {signal.bias === "UP" ? "Up" : "Down"}
           </div>
         </div>
@@ -60,7 +60,7 @@ export default function CryptoSignalOpportunityCard({ signal, onEnter, onSkip })
           className={`flex-1 py-2 rounded-full font-semibold transition
             ${signal.bias === "UP"
               ? "bg-green-500 text-black"
-              : "bg-purple-500 text-white"}
+              : "bg-blue-500 text-white"}
             ${entryOpen ? "hover:opacity-90" : "opacity-40 cursor-not-allowed"}
           `}
         >
@@ -73,7 +73,7 @@ export default function CryptoSignalOpportunityCard({ signal, onEnter, onSkip })
           className={`flex-1 py-2 rounded-full font-semibold transition
             ${signal.bias === "DOWN"
               ? "bg-red-500 text-white"
-              : "bg-purple-800 text-white"}
+              : "bg-slate-800 text-white"}
             ${entryOpen ? "hover:opacity-90" : "opacity-40 cursor-not-allowed"}
           `}
         >
